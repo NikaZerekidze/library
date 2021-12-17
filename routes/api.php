@@ -22,7 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/books', [BooksController::class, 'index']);
+Route::get('/singlebook/{book}', [BooksController::class, 'show']);
 
 Route::post('/create/books', [BooksController::class, 'store']);
+Route::post('/update/books/{id}', [BooksController::class, 'update']);
 
-Route::get('/singlebook/{book}', [BooksController::class, 'show']);
+Route::delete('/delete/books/{id}', [BooksController::class, 'destroy']);

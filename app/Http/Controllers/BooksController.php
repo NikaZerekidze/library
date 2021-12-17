@@ -73,9 +73,11 @@ class BooksController extends Controller
      * @param  \App\Models\Books  $books
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Books $books)
+    public function update(Request $request, $id)
     {
-        //
+        $product=Books::find($id);
+        $product->update($request->all());
+        return $product;
     }
 
     /**
@@ -84,8 +86,8 @@ class BooksController extends Controller
      * @param  \App\Models\Books  $books
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Books $books)
+    public function destroy($id)
     {
-        //
+        Books::destroy($id);
     }
 }
